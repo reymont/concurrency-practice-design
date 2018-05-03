@@ -1,0 +1,11 @@
+*.class
+*.iml
+
+###my own###
+out
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr

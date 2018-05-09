@@ -26,6 +26,7 @@ public class CyclicBarrierDemo {
                 //等待所有士兵到齐
                 cyclic.await();
                 doWork();
+                System.out.println(cyclic.getNumberWaiting()+"个士兵正在等待");
                 //等待所有士兵完成工作
                 cyclic.await();
             }catch (InterruptedException e){

@@ -1,4 +1,4 @@
-package chap2;
+package chap2.ch2_8;
 
 import java.util.HashMap;
 import java.util.Map;

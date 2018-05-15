@@ -3,9 +3,17 @@ dontinline,*.*_avgt_jmhStub
 dontinline,*.*_sample_jmhStub
 dontinline,*.*_ss_jmhStub
 dontinline,*.*_thrpt_jmhStub
+inline,chap3/benchmark/MillionByIncrementBenchmark.timeOfIncrementByMultipleThreadsWithExtends
+inline,chap3/benchmark/MillionByIncrementBenchmark.timeOfIncrementByMultipleThreadsWithRunnable
+inline,chap3/benchmark/MillionByIncrementBenchmark.timeOfIncrementBySingleThread
+inline,chap3/benchmark/MillionByIncrementBenchmark.timeOfIncrementWithAtomicLong
+inline,chap3/benchmark/MillionByIncrementBenchmark.timeOfIncrementWithReadWriteLock
+inline,chap3/benchmark/MillionByIncrementBenchmark.timeOfIncrementWithReentrantLock
 inline,chap3/benchmark/MultithreadedBenchmark$BlockingQueueState.setUp
 inline,chap3/benchmark/MultithreadedBenchmark$ConcurrentQueueState.setUp
 inline,chap3/benchmark/MultithreadedBenchmark.offerBlockingBenchmark
 inline,chap3/benchmark/MultithreadedBenchmark.offerConcurrentBenchmark
 inline,chap3/benchmark/MultithreadedBenchmark.takeBlockingBenchmark
 inline,chap3/benchmark/MultithreadedBenchmark.takeConcurrentBenchmark
+inline,chap3/benchmark/QuickStart.testStringAdd
+inline,chap3/benchmark/QuickStart.testStringBuilderAdd

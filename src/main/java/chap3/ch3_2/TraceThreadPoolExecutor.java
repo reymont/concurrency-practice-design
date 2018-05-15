@@ -1,4 +1,4 @@
-package chap3;
+package chap3.ch3_2;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Future;

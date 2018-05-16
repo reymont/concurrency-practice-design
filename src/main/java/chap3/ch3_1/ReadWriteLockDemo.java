@@ -1,4 +1,4 @@
-package chap3;
+package chap3.ch3_1;
 
 import java.util.Random;
 import java.util.concurrent.locks.Lock;

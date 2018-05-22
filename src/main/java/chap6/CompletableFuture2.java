@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * Created by hjy on 18-2-23.
  */
-public class ComFuTest2 {
+public class CompletableFuture2 {
 
     public static Integer calc(Integer para){
         return para / 2;

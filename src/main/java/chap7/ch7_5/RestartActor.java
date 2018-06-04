@@ -1,4 +1,4 @@
-package chap7;
+package chap7.ch7_5;
 
 import akka.actor.UntypedActor;
 import scala.Option;

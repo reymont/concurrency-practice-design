@@ -1,4 +1,4 @@
-package chap7;
+package chap7.ch7_8;
 
 import akka.actor.ActorRef;
 import akka.actor.Props;
@@ -26,9 +26,13 @@ public class RWatchActor extends UntypedActor{
             getContext().watch(worker);
             routees.add(new ActorRefRoutee(worker));
         }
+        // Routee进行轮询消息发送
        // router = new Router(new RoundRobinRoutingLogic(),routees);
+        // 广播策略
        // router = new Router(new BroadcastRoutingLogic(),routees);
+        // 随机投递策略
        // router = new Router(new RandomRoutingLogic(),routees);
+        // 空闲Actor优先投递策略
         router = new Router(new SmallestMailboxRoutingLogic(),routees);
     }
 

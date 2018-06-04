@@ -1,4 +1,4 @@
-package chap7;
+package chap7.ch7_7;
 
 import akka.actor.*;
 import com.typesafe.config.ConfigFactory;
@@ -17,7 +17,9 @@ public class InboxMain {
 
         ActorRef worker = system.actorOf(Props.create(MyWorker.class),"worker");
 
+        // 根据ActorSystem构造了一个与之绑定的邮箱Inbox
         final Inbox inbox = Inbox.create(system);
+        // 接着使用邮箱监视MyWorker
         inbox.watch(worker);
         inbox.send(worker,MyWorker.Msg.WORKING);
         inbox.send(worker,MyWorker.Msg.DONE);

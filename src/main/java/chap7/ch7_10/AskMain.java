@@ -1,15 +1,13 @@
-package chap7;
+package chap7.ch7_10;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.PoisonPill;
 import akka.actor.Props;
-import chap7.ch7_9.WatchActor;
 import com.typesafe.config.ConfigFactory;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
-
 
 import java.util.concurrent.TimeUnit;
 

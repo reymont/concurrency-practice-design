@@ -1,32 +1,30 @@
-package chap7;
+package chap7.ch7_12;
 
 import akka.actor.UntypedActor;
 import akka.transactor.Coordinated;
-import com.sun.xml.internal.bind.v2.runtime.Coordinator;
 import scala.concurrent.stm.Ref;
 import scala.concurrent.stm.japi.STM;
 
 /**
  * Created by hjy on 18-2-24.
  */
-public class CompanyActor extends UntypedActor{
-    private Ref.View<Integer> count = STM.newRef(100);
+public class EmployeeActor extends UntypedActor{
+
+    private Ref.View<Integer> count = STM.newRef(50);
+
 
     @Override
     public void onReceive(Object msg) throws Exception {
-        if (msg instanceof Coordinated){
+
+        if (msg instanceof  Coordinated){
             final Coordinated c = (Coordinated)msg;
-            final int downCount = (Integer)c.getMessage();
-            STMDemo.employee.tell(c.coordinate(downCount),getSelf());
+            final int downCount = (Integer) c.getMessage();
 
             try {
                 c.atomic(new Runnable() {
                     @Override
                     public void run() {
-                        if (count.get()<downCount){
-                            throw new RuntimeException("less than "+downCount);
-                        }
-                        STM.increment(count,-downCount);
+                        STM.increment(count,downCount);
                     }
                 });
             }catch (Exception e){
@@ -37,8 +35,5 @@ public class CompanyActor extends UntypedActor{
         }else {
             unhandled(msg);
         }
-
-
-
     }
 }

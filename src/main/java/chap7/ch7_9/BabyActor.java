@@ -16,6 +16,7 @@ public class BabyActor extends UntypedActor{
         SLEEP,PLAY,CLOSE;
     }
 
+    // Procedure在这里可以表示一种Actor的状态，同时封装了在这种状态下的消息处理逻辑
     Procedure<Object> angry = new Procedure<Object>() {
         @Override
         public void apply(Object msg) throws Exception {
@@ -51,6 +52,7 @@ public class BabyActor extends UntypedActor{
     public void onReceive(Object msg) throws Exception {
         System.out.println("onReceive:"+msg);
         if (msg==Msg.SLEEP){
+            // 使用become()方法用于切换Actor的状态
             getContext().become(angry);
         }else if (msg == Msg.PLAY){
             getContext().become(happy);

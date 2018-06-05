@@ -1,4 +1,4 @@
-package chap7;
+package chap7.ch7_11;
 
 import akka.actor.*;
 import akka.agent.Agent;

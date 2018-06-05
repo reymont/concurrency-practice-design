@@ -1,4 +1,4 @@
-package chap7;
+package chap7.ch7_10;
 
 import akka.actor.UntypedActor;
 import akka.event.Logging;

@@ -1,4 +1,4 @@
-package chap7;
+package chap7.ch7_10;
 
 import akka.actor.UntypedActor;
 import akka.event.Logging;
@@ -7,7 +7,7 @@ import akka.event.LoggingAdapter;
 /**
  * Created by hjy on 18-2-24.
  */
-public class MyWorker extends UntypedActor{
+public class AMyWorker extends UntypedActor{
 
     private final LoggingAdapter log = Logging.getLogger(getContext().system(),this);
 
@@ -27,13 +27,19 @@ public class MyWorker extends UntypedActor{
 
     @Override
     public void onReceive(Object msg) throws Exception {
-        if (msg==Msg.WORKING){
-            System.out.println("i am working");
+        if (msg instanceof Integer){
+            int i = (Integer)msg;
+            try {
+                Thread.sleep(1000);
+            }catch (InterruptedException e){
+
+            }
+            getSender().tell(i*i,getSelf());
         }
-        if (msg==Msg.DONE){
+        if (msg== Msg.DONE){
             System.out.println("stop working");
         }
-        if (msg==Msg.CLOSE){
+        if (msg== Msg.CLOSE){
             System.out.println("i will shutdown");
             getSender().tell(Msg.CLOSE,getSelf());
             getContext().stop(getSelf());

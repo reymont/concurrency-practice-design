@@ -13,10 +13,10 @@ public class DeadMain {
 
     public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("deadwatch", ConfigFactory.load("samplehello.conf"));
-        ActorRef worker = system.actorOf(Props.create(chap7.MyWorker.class),"worker");
+        ActorRef worker = system.actorOf(Props.create(MyWorker.class),"worker");
         // Props.create()方法，第1个参数为要创建的Actor类型，第2个参数为这个Actor的构造函数的参数
         system.actorOf(Props.create(WatchActor.class,worker),"watcher");
-        worker.tell(chap7.MyWorker.Msg.WORKING,ActorRef.noSender());
+        worker.tell(MyWorker.Msg.WORKING,ActorRef.noSender());
         worker.tell(MyWorker.Msg.DONE,ActorRef.noSender());
         // 直接毒死接收方，让其终止
         worker.tell(PoisonPill.getInstance(),ActorRef.noSender());
